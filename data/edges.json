@@ -1,0 +1,240 @@
+[
+  {
+    "id": "edge-core-ai",
+    "source": "core",
+    "target": "ai-systems",
+    "relation": "powers",
+    "strength": 1.0
+  },
+  {
+    "id": "edge-core-auto",
+    "source": "core",
+    "target": "automation",
+    "relation": "powers",
+    "strength": 0.9
+  },
+  {
+    "id": "edge-core-research",
+    "source": "core",
+    "target": "research-engines",
+    "relation": "powers",
+    "strength": 0.9
+  },
+  {
+    "id": "edge-core-trading",
+    "source": "core",
+    "target": "trading-systems",
+    "relation": "powers",
+    "strength": 0.8
+  },
+  {
+    "id": "edge-core-game",
+    "source": "core",
+    "target": "game-experiments",
+    "relation": "powers",
+    "strength": 0.8
+  },
+  {
+    "id": "edge-core-visual",
+    "source": "core",
+    "target": "visual-interfaces",
+    "relation": "powers",
+    "strength": 0.85
+  },
+  {
+    "id": "edge-core-business",
+    "source": "core",
+    "target": "business-tools",
+    "relation": "powers",
+    "strength": 0.9
+  },
+  {
+    "id": "edge-core-future",
+    "source": "core",
+    "target": "future-concepts",
+    "relation": "powers",
+    "strength": 0.8
+  },
+  {
+    "id": "edge-ai-nexus",
+    "source": "ai-systems",
+    "target": "proj-nexus",
+    "relation": "contains",
+    "strength": 0.9
+  },
+  {
+    "id": "edge-ai-autotrader",
+    "source": "ai-systems",
+    "target": "proj-autotrader",
+    "relation": "contains",
+    "strength": 0.8
+  },
+  {
+    "id": "edge-ai-knowledge",
+    "source": "ai-systems",
+    "target": "proj-knowledge-graph",
+    "relation": "contains",
+    "strength": 1.0
+  },
+  {
+    "id": "edge-ai-game",
+    "source": "ai-systems",
+    "target": "proj-game-ai",
+    "relation": "contains",
+    "strength": 0.7
+  },
+  {
+    "id": "edge-auto-autotrader",
+    "source": "automation",
+    "target": "proj-autotrader",
+    "relation": "contains",
+    "strength": 0.8
+  },
+  {
+    "id": "edge-auto-crm",
+    "source": "automation",
+    "target": "proj-crm-automation",
+    "relation": "contains",
+    "strength": 1.0
+  },
+  {
+    "id": "edge-research-knowledge",
+    "source": "research-engines",
+    "target": "proj-knowledge-graph",
+    "relation": "contains",
+    "strength": 1.0
+  },
+  {
+    "id": "edge-research-viz",
+    "source": "research-engines",
+    "target": "proj-viz-engine",
+    "relation": "contains",
+    "strength": 0.8
+  },
+  {
+    "id": "edge-trading-autotrader",
+    "source": "trading-systems",
+    "target": "proj-autotrader",
+    "relation": "contains",
+    "strength": 1.0
+  },
+  {
+    "id": "edge-game-gameai",
+    "source": "game-experiments",
+    "target": "proj-game-ai",
+    "relation": "contains",
+    "strength": 1.0
+  },
+  {
+    "id": "edge-visual-nexus",
+    "source": "visual-interfaces",
+    "target": "proj-nexus",
+    "relation": "contains",
+    "strength": 1.0
+  },
+  {
+    "id": "edge-visual-game",
+    "source": "visual-interfaces",
+    "target": "proj-game-ai",
+    "relation": "contains",
+    "strength": 0.7
+  },
+  {
+    "id": "edge-visual-viz",
+    "source": "visual-interfaces",
+    "target": "proj-viz-engine",
+    "relation": "contains",
+    "strength": 1.0
+  },
+  {
+    "id": "edge-business-crm",
+    "source": "business-tools",
+    "target": "proj-crm-automation",
+    "relation": "contains",
+    "strength": 1.0
+  },
+  {
+    "id": "edge-future-nexus",
+    "source": "future-concepts",
+    "target": "proj-nexus",
+    "relation": "contains",
+    "strength": 0.7
+  },
+  {
+    "id": "edge-future-knowledge",
+    "source": "future-concepts",
+    "target": "proj-knowledge-graph",
+    "relation": "contains",
+    "strength": 0.8
+  },
+  {
+    "id": "edge-ai-swarm",
+    "source": "ai-systems",
+    "target": "conc-swarm-intel",
+    "relation": "evolves-into",
+    "strength": 0.7
+  },
+  {
+    "id": "edge-ai-neural",
+    "source": "ai-systems",
+    "target": "conc-neural-hub",
+    "relation": "evolves-into",
+    "strength": 0.6
+  },
+  {
+    "id": "edge-future-swarm",
+    "source": "future-concepts",
+    "target": "conc-swarm-intel",
+    "relation": "evolves-into",
+    "strength": 0.9
+  },
+  {
+    "id": "edge-ai-research",
+    "source": "ai-systems",
+    "target": "research-engines",
+    "relation": "related-to",
+    "strength": 0.8
+  },
+  {
+    "id": "edge-auto-business",
+    "source": "automation",
+    "target": "business-tools",
+    "relation": "related-to",
+    "strength": 0.7
+  },
+  {
+    "id": "edge-visual-game-experiments",
+    "source": "visual-interfaces",
+    "target": "game-experiments",
+    "relation": "related-to",
+    "strength": 0.6
+  },
+  {
+    "id": "edge-ai-cofounder",
+    "source": "ai-systems",
+    "target": "conc-ai-cofounder",
+    "relation": "evolves-into",
+    "strength": 0.6
+  },
+  {
+    "id": "edge-business-cofounder",
+    "source": "business-tools",
+    "target": "conc-ai-cofounder",
+    "relation": "evolves-into",
+    "strength": 0.7
+  },
+  {
+    "id": "edge-auto-cofounder",
+    "source": "automation",
+    "target": "conc-ai-cofounder",
+    "relation": "evolves-into",
+    "strength": 0.5
+  },
+  {
+    "id": "edge-core-contact",
+    "source": "core",
+    "target": "contact",
+    "relation": "related-to",
+    "strength": 0.5
+  }
+]

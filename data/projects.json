@@ -1,0 +1,164 @@
+[
+  {
+    "id": "proj-nexus",
+    "title": "NEXUS Portfolio",
+    "tagline": "A living portfolio that visualizes skills and projects as an interactive knowledge graph",
+    "description": "An interactive living portfolio built with Next.js and Three.js that maps skills, projects, and concepts as a dynamic force-directed graph.",
+    "longDescription": "NEXUS is more than a portfolio — it is a living system that evolves alongside its creator. Every skill, project, and future concept is represented as a node in a dynamic graph, connected by meaningful relationships. The interface uses force-directed layout to reveal the hidden structure of expertise, allowing visitors to explore the connections between AI systems, trading algorithms, game experiments, and beyond. Built with modern web technologies and designed for extensibility.",
+    "features": [
+      "Interactive force-directed graph visualization",
+      "Dynamic node filtering and search",
+      "Responsive dark-mode interface",
+      "Modular plugin-based architecture",
+      "Real-time data from JSON sources"
+    ],
+    "techStack": [
+      { "name": "Next.js", "role": "React framework with server components" },
+      { "name": "React", "role": "UI component library" },
+      { "name": "TypeScript", "role": "Type-safe development" },
+      { "name": "Tailwind CSS", "role": "Utility-first styling" },
+      { "name": "Three.js", "role": "3D graph visualization" },
+      { "name": "D3.js", "role": "Force-directed layout engine" }
+    ],
+    "screenshots": [],
+    "links": [
+      { "label": "GitHub", "url": "https://github.com/username/nexus-portfolio" }
+    ],
+    "timeline": { "start": "2025-01", "end": null }
+  },
+  {
+    "id": "proj-autotrader",
+    "title": "AutoTrader",
+    "tagline": "Machine learning powered algorithmic trading system",
+    "description": "An algorithmic trading platform that leverages ML models to identify market patterns and execute trades automatically.",
+    "longDescription": "AutoTrader combines traditional quantitative finance with modern machine learning techniques. The system ingests real-time market data, trains predictive models on historical patterns, and executes trades through broker APIs. A backtesting engine allows strategy validation before deployment, while risk management modules protect against drawdowns. The platform supports multiple asset classes and exchanges.",
+    "features": [
+      "ML-driven trade signal generation",
+      "Historical backtesting engine",
+      "Real-time market data pipeline",
+      "Automated risk management",
+      "Portfolio optimization algorithms",
+      "Multi-exchange support"
+    ],
+    "techStack": [
+      { "name": "Python", "role": "Core trading engine" },
+      { "name": "Pandas", "role": "Data analysis and backtesting" },
+      { "name": "scikit-learn", "role": "ML model training" },
+      { "name": "Alpaca API", "role": "Trade execution" },
+      { "name": "PostgreSQL", "role": "Market data storage" }
+    ],
+    "screenshots": [],
+    "links": [
+      { "label": "GitHub", "url": "https://github.com/username/autotrader" }
+    ],
+    "timeline": { "start": "2024-03", "end": "2024-09" }
+  },
+  {
+    "id": "proj-knowledge-graph",
+    "title": "Knowledge Graph Engine",
+    "tagline": "Semantic knowledge extraction and relationship mapping",
+    "description": "A system that extracts entities and relationships from unstructured text to build a queryable knowledge graph.",
+    "longDescription": "The Knowledge Graph Engine ingests documents, articles, and notes, then uses LLMs and NLP pipelines to extract entities, their attributes, and the relationships between them. The resulting graph is stored in Neo4j and can be queried via a semantic search interface. This enables powerful capabilities like discovering indirect connections, surfacing hidden patterns, and traversing knowledge domains that would be impossible with traditional search.",
+    "features": [
+      "LLM-powered entity extraction",
+      "Relationship inference and ranking",
+      "Semantic search over graph data",
+      "Document ingestion pipeline",
+      "Interactive graph exploration UI",
+      "Multi-source data integration"
+    ],
+    "techStack": [
+      { "name": "Neo4j", "role": "Graph database" },
+      { "name": "LangChain", "role": "LLM orchestration" },
+      { "name": "OpenAI API", "role": "Entity extraction" },
+      { "name": "FastAPI", "role": "REST API backend" },
+      { "name": "React", "role": "Graph visualization frontend" }
+    ],
+    "screenshots": [],
+    "links": [
+      { "label": "GitHub", "url": "https://github.com/username/knowledge-graph" }
+    ],
+    "timeline": { "start": "2025-01", "end": null }
+  },
+  {
+    "id": "proj-crm-automation",
+    "title": "CRM Automation Suite",
+    "tagline": "End-to-end sales workflow automation platform",
+    "description": "A comprehensive CRM platform that automates lead management, email campaigns, and sales analytics.",
+    "longDescription": "This CRM Automation Suite replaces manual sales workflows with intelligent automation. Leads are automatically scored and enriched from multiple data sources. Multi-channel email campaigns are managed through a visual builder with A/B testing capabilities. A real-time analytics dashboard provides insights into conversion rates, pipeline health, and team performance. The platform integrates with popular tools via REST APIs and webhooks.",
+    "features": [
+      "Automated lead scoring and enrichment",
+      "Visual email campaign builder",
+      "Multi-channel outreach (email, LinkedIn)",
+      "Real-time sales analytics dashboard",
+      "REST API and webhook integrations",
+      "Role-based access control"
+    ],
+    "techStack": [
+      { "name": "n8n", "role": "Workflow automation engine" },
+      { "name": "PostgreSQL", "role": "Primary database" },
+      { "name": "React", "role": "Frontend dashboard" },
+      { "name": "Node.js", "role": "API backend" },
+      { "name": "Redis", "role": "Caching and queues" }
+    ],
+    "screenshots": [],
+    "links": [
+      { "label": "Live Demo", "url": "https://crm-demo.example.com" },
+      { "label": "GitHub", "url": "https://github.com/username/crm-suite" }
+    ],
+    "timeline": { "start": "2024-06", "end": "2024-12" }
+  },
+  {
+    "id": "proj-viz-engine",
+    "title": "Viz Engine",
+    "tagline": "Real-time 3D data visualization engine",
+    "description": "A high-performance visualization engine for rendering complex datasets as interactive 3D and 2D graphics.",
+    "longDescription": "Viz Engine is a modular visualization framework built on WebGL. It supports multiple rendering modes including force-directed graphs, heatmaps, particle systems, and geographic maps. The engine processes data streams in real-time, enabling live monitoring dashboards and interactive data exploration. Custom shaders and post-processing effects allow for visually stunning presentations of abstract data.",
+    "features": [
+      "WebGL-accelerated 3D rendering",
+      "Force-directed graph layout engine",
+      "Real-time data streaming support",
+      "Custom GLSL shader pipeline",
+      "Multiple visualization presets",
+      "Export to image and video"
+    ],
+    "techStack": [
+      { "name": "Three.js", "role": "3D rendering engine" },
+      { "name": "D3.js", "role": "Force layout computation" },
+      { "name": "WebGL", "role": "Hardware-accelerated graphics" },
+      { "name": "React", "role": "UI layer" },
+      { "name": "TypeScript", "role": "Type-safe application code" }
+    ],
+    "screenshots": [],
+    "links": [
+      { "label": "GitHub", "url": "https://github.com/username/viz-engine" }
+    ],
+    "timeline": { "start": "2025-02", "end": null }
+  },
+  {
+    "id": "proj-game-ai",
+    "title": "Game AI Sandbox",
+    "tagline": "An experimental playground for game AI and procedural generation",
+    "description": "A sandbox environment for prototyping game AI behaviors, procedural world generation, and interactive narratives.",
+    "longDescription": "Game AI Sandbox is a research project exploring the intersection of artificial intelligence and game design. It implements behavior trees for NPC decision-making, procedural algorithms for world generation, and reinforcement learning agents that learn to play and navigate generated environments. The sandbox provides visual debugging tools for understanding AI decision processes and a plugin system for adding new behaviors and generation algorithms.",
+    "features": [
+      "Behavior tree NPC AI system",
+      "Procedural terrain and level generation",
+      "Reinforcement learning agent training",
+      "Visual AI debugging tools",
+      "Plugin architecture for extensions",
+      "Multi-agent simulation support"
+    ],
+    "techStack": [
+      { "name": "Godot", "role": "Game engine" },
+      { "name": "Python", "role": "ML training pipeline" },
+      { "name": "ML-Agents", "role": "Reinforcement learning" },
+      { "name": "Procedural Generation", "role": "World generation algorithms" }
+    ],
+    "screenshots": [],
+    "links": [
+      { "label": "GitHub", "url": "https://github.com/username/game-ai-sandbox" }
+    ],
+    "timeline": { "start": "2024-08", "end": null }
+  }
+]

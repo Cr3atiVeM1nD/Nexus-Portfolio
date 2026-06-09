@@ -1,0 +1,192 @@
+[
+  {
+    "id": "core",
+    "type": "core",
+    "label": "BUILDER CORE",
+    "description": "The central nexus connecting AI, finance, and human interface engineering",
+    "subtitle": "The Nexus",
+    "mission": "Building autonomous systems at the intersection of AI, finance, and human interface"
+  },
+  {
+    "id": "ai-systems",
+    "type": "skill",
+    "label": "AI Systems",
+    "category": "ai-systems",
+    "proficiency": 92,
+    "icon": "brain",
+    "technologies": ["GPT-4","Claude","LangChain","Hugging Face","RAG"],
+    "description": "Designing and deploying large language model solutions and AI pipelines"
+  },
+  {
+    "id": "automation",
+    "type": "skill",
+    "label": "Automation",
+    "category": "automation",
+    "proficiency": 88,
+    "icon": "zap",
+    "technologies": ["n8n","Playwright","Puppeteer","GitHub Actions"],
+    "description": "Building end-to-end automated workflows and CI/CD pipelines"
+  },
+  {
+    "id": "research-engines",
+    "type": "skill",
+    "label": "Research Engines",
+    "category": "research-engines",
+    "proficiency": 85,
+    "icon": "search",
+    "technologies": ["Vector Search","Elasticsearch","Semantic Kernel","Knowledge Graphs"],
+    "description": "Developing semantic search and knowledge discovery systems"
+  },
+  {
+    "id": "trading-systems",
+    "type": "skill",
+    "label": "Trading Systems",
+    "category": "trading-systems",
+    "proficiency": 82,
+    "icon": "trending-up",
+    "technologies": ["Algorithmic Trading","Backtesting","Risk Management","Market Data APIs"],
+    "description": "Creating algorithmic trading strategies and risk management tools"
+  },
+  {
+    "id": "game-experiments",
+    "type": "skill",
+    "label": "Game Experiments",
+    "category": "game-experiments",
+    "proficiency": 70,
+    "icon": "gamepad-2",
+    "technologies": ["Unity","Godot","Procedural Generation","Game AI"],
+    "description": "Exploring game mechanics, procedural generation, and interactive narratives"
+  },
+  {
+    "id": "visual-interfaces",
+    "type": "skill",
+    "label": "Visual Interfaces",
+    "category": "visual-interfaces",
+    "proficiency": 78,
+    "icon": "eye",
+    "technologies": ["Three.js","D3.js","WebGL","Motion Design"],
+    "description": "Crafting immersive data visualizations and interactive UI experiences"
+  },
+  {
+    "id": "business-tools",
+    "type": "skill",
+    "label": "Business Tools",
+    "category": "business-tools",
+    "proficiency": 85,
+    "icon": "briefcase",
+    "technologies": ["CRM Automation","Analytics Dashboards","Workflow Engines","API Integration"],
+    "description": "Engineering business automation platforms and analytics solutions"
+  },
+  {
+    "id": "future-concepts",
+    "type": "skill",
+    "label": "Future Concepts",
+    "category": "future-concepts",
+    "proficiency": 60,
+    "icon": "sparkles",
+    "technologies": ["Neural Interfaces","Swarm Intelligence","Quantum ML","Agentic Systems"],
+    "description": "Researching next-generation computing paradigms and human augmentation"
+  },
+  {
+    "id": "proj-nexus",
+    "type": "project",
+    "label": "NEXUS Portfolio",
+    "status": "development",
+    "year": 2025,
+    "skills": ["visual-interfaces","ai-systems","future-concepts"],
+    "technologies": ["Next.js","React","TypeScript","Tailwind CSS","Three.js"],
+    "highlights": ["Living portfolio with graph visualization","AI-powered content generation","Modular component architecture"],
+    "description": "An interactive living portfolio that visualizes skills, projects, and concepts as a dynamic knowledge graph"
+  },
+  {
+    "id": "proj-autotrader",
+    "type": "project",
+    "label": "AutoTrader",
+    "status": "experiment",
+    "year": 2024,
+    "skills": ["trading-systems","automation","ai-systems"],
+    "technologies": ["Python","Pandas","ML Models","Alpaca API"],
+    "highlights": ["Automated trading strategies with ML signals","Real-time market data processing","Portfolio optimization algorithms"],
+    "description": "An algorithmic trading system that uses machine learning to identify and execute trades"
+  },
+  {
+    "id": "proj-knowledge-graph",
+    "type": "project",
+    "label": "Knowledge Graph Engine",
+    "status": "development",
+    "year": 2025,
+    "skills": ["research-engines","ai-systems","future-concepts"],
+    "technologies": ["Neo4j","RAG","LangChain","OpenAI"],
+    "highlights": ["Semantic search across documents","Entity extraction and relationship mapping","Multi-source knowledge integration"],
+    "description": "A knowledge graph system that extracts, links, and surfaces relationships from unstructured data"
+  },
+  {
+    "id": "proj-game-ai",
+    "type": "project",
+    "label": "Game AI Sandbox",
+    "status": "experiment",
+    "year": 2024,
+    "skills": ["game-experiments","ai-systems","visual-interfaces"],
+    "technologies": ["Godot","Python","ML-Agents","Procedural Generation"],
+    "highlights": ["NPC behavior trees with adaptive AI","Procedural world generation","Reinforcement learning experiments"],
+    "description": "A sandbox for experimenting with game AI, procedural generation, and interactive storytelling"
+  },
+  {
+    "id": "proj-crm-automation",
+    "type": "project",
+    "label": "CRM Automation Suite",
+    "status": "production",
+    "year": 2024,
+    "skills": ["business-tools","automation"],
+    "technologies": ["n8n","PostgreSQL","React","Node.js"],
+    "highlights": ["Automated lead scoring and enrichment","Multi-channel email campaign management","Real-time analytics dashboard"],
+    "description": "A comprehensive CRM automation platform that streamlines sales workflows and customer engagement"
+  },
+  {
+    "id": "proj-viz-engine",
+    "type": "project",
+    "label": "Viz Engine",
+    "status": "development",
+    "year": 2025,
+    "skills": ["visual-interfaces","research-engines"],
+    "technologies": ["Three.js","D3.js","WebGL","React"],
+    "highlights": ["3D data visualization with WebGL","Force-directed graph layouts","Real-time rendering pipeline"],
+    "description": "A visualization engine for rendering complex data as interactive 3D and 2D graphics"
+  },
+  {
+    "id": "conc-swarm-intel",
+    "type": "concept",
+    "label": "Swarm Intelligence Platform",
+    "status": "concept",
+    "feasibility": 45,
+    "relatedSkills": ["ai-systems","future-concepts","automation"],
+    "description": "A distributed decision-making platform using swarm algorithms for optimization tasks"
+  },
+  {
+    "id": "conc-neural-hub",
+    "type": "concept",
+    "label": "Neural Interface Hub",
+    "status": "concept",
+    "feasibility": 30,
+    "relatedSkills": ["future-concepts","visual-interfaces","ai-systems"],
+    "description": "A brain-computer interface framework for controlling digital environments with neural signals"
+  },
+  {
+    "id": "conc-ai-cofounder",
+    "type": "concept",
+    "label": "AI Co-Founder",
+    "description": "Autonomous agent that operates as a virtual co-founder for early-stage ventures.",
+    "status": "concept",
+    "feasibility": 45,
+    "relatedSkills": ["ai-systems", "business-tools", "automation"]
+  },
+  {
+    "id": "contact",
+    "type": "concept",
+    "label": "Contact / Hire",
+    "description": "Explore collaboration opportunities",
+    "status": "concept",
+    "feasibility": 100,
+    "relatedSkills": []
+  }
+]

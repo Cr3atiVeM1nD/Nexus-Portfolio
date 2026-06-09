@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+body {
+  background-color: black;
+  color: white;
+  min-height: 100vh;
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.4s ease-out both;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out both;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.3s ease-out both;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  0%, 100% { border-color: transparent; }
+  50% { border-color: rgb(34 211 238); }
+}
+
+.animate-typing {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+  animation: typing 1.5s steps(20) 0.5s forwards, blink 0.8s step-end 3;
+  border-right: 2px solid rgb(34 211 238);
+  display: inline-block;
+}
+
+/* Boot animations */
+@keyframes boot-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes boot-typewriter {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes boot-fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes boot-blink-cursor {
+  0%, 100% { border-color: transparent; }
+  50% { border-color: rgb(34 211 238); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 8px rgba(34,211,238,0.4); }
+  50% { box-shadow: 0 0 20px rgba(34,211,238,0.8); }
+}
+
+@keyframes scan-status-fade {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-boot-fade-in {
+  animation: boot-fade-in 0.8s ease-out both;
+}
+
+.animate-boot-typewriter {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+  display: inline-block;
+  animation: boot-typewriter 1.5s steps(30) forwards;
+  border-right: 2px solid rgb(34 211 238);
+}
+
+.animate-boot-fade-out {
+  animation: boot-fade-out 0.5s ease-in both;
+}
+
+.animate-boot-blink-cursor {
+  animation: boot-blink-cursor 0.8s step-end infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-scan-status-fade {
+  animation: scan-status-fade 0.5s ease-out both;
+}
