@@ -2,6 +2,7 @@
 
 import { type SkillNode, type RelatedNode } from "@/lib/types";
 import { getRelationBadgeClasses, getGaugeStrokeColor } from "@/lib/style-helpers";
+import { GAUGE_RADIUS, GAUGE_CIRCUMFERENCE, ANIMATION_DELAY_STEP } from "@/lib/constants";
 import {
   Brain,
   Zap,
@@ -39,14 +40,13 @@ export function SkillDetail({ node, relatedNodes, onNavigate }: SkillDetailProps
   const concepts = relatedNodes.filter((rn) => rn.node.type === "concept");
   const relatedSkills = relatedNodes.filter((rn) => rn.node.type === "skill");
 
-  const circumference = 2 * Math.PI * 40;
-  const offset = circumference * (1 - node.proficiency / 100);
+  const offset = GAUGE_CIRCUMFERENCE * (1 - node.proficiency / 100);
   const gaugeStrokeColor = getGaugeStrokeColor(node.proficiency);
 
   return (
     <div className="p-6">
       {/* Header + icon */}
-      <div className="animate-slide-up" style={{ animationDelay: '0ms' }}>
+      <div className="animate-slide-up" style={{ animationDelay: `${0 * ANIMATION_DELAY_STEP}ms` }}>
         <div className="flex items-center gap-3 mb-4">
           <Icon className="w-10 h-10 text-emerald-400 shrink-0" />
           <div>
@@ -59,13 +59,13 @@ export function SkillDetail({ node, relatedNodes, onNavigate }: SkillDetailProps
       </div>
 
       {/* Circular gauge */}
-      <div className="animate-slide-up" style={{ animationDelay: '80ms' }}>
+      <div className="animate-slide-up" style={{ animationDelay: `${1 * ANIMATION_DELAY_STEP}ms` }}>
         <div className="flex justify-center mb-4">
           <svg width="112" height="112" viewBox="0 0 100 100">
             <circle
               cx="50"
               cy="50"
-              r="40"
+              r={GAUGE_RADIUS}
               fill="none"
               stroke="rgb(38 38 38)"
               strokeWidth="8"
@@ -73,11 +73,11 @@ export function SkillDetail({ node, relatedNodes, onNavigate }: SkillDetailProps
             <circle
               cx="50"
               cy="50"
-              r="40"
+              r={GAUGE_RADIUS}
               fill="none"
               stroke={gaugeStrokeColor}
               strokeWidth="8"
-              strokeDasharray={circumference}
+              strokeDasharray={GAUGE_CIRCUMFERENCE}
               strokeDashoffset={offset}
               strokeLinecap="round"
               transform="rotate(-90 50 50)"
@@ -96,12 +96,12 @@ export function SkillDetail({ node, relatedNodes, onNavigate }: SkillDetailProps
       </div>
 
       {/* Description */}
-      <div className="animate-slide-up" style={{ animationDelay: '160ms' }}>
+      <div className="animate-slide-up" style={{ animationDelay: `${2 * ANIMATION_DELAY_STEP}ms` }}>
         <p className="text-gray-300 mt-4">{node.description}</p>
       </div>
 
       {/* Technologies */}
-      <div className="animate-slide-up" style={{ animationDelay: '240ms' }}>
+      <div className="animate-slide-up" style={{ animationDelay: `${3 * ANIMATION_DELAY_STEP}ms` }}>
         <div className="flex flex-wrap gap-2 mt-4">
           {node.technologies.map((tech) => (
             <span
@@ -116,7 +116,7 @@ export function SkillDetail({ node, relatedNodes, onNavigate }: SkillDetailProps
 
       {/* Projects */}
       {projects.length > 0 && (
-        <div className="animate-slide-up" style={{ animationDelay: '320ms' }}>
+        <div className="animate-slide-up" style={{ animationDelay: `${4 * ANIMATION_DELAY_STEP}ms` }}>
           <div className="mt-6">
             <h3 className="text-sm uppercase tracking-wider text-gray-500 mb-2">Projects</h3>
             <div className="space-y-1">
@@ -136,7 +136,7 @@ export function SkillDetail({ node, relatedNodes, onNavigate }: SkillDetailProps
 
       {/* Concepts */}
       {concepts.length > 0 && (
-        <div className="animate-slide-up" style={{ animationDelay: '400ms' }}>
+        <div className="animate-slide-up" style={{ animationDelay: `${5 * ANIMATION_DELAY_STEP}ms` }}>
           <div className="mt-4">
             <h3 className="text-sm uppercase tracking-wider text-gray-500 mb-2">Concepts</h3>
             <div className="space-y-1">
@@ -156,7 +156,7 @@ export function SkillDetail({ node, relatedNodes, onNavigate }: SkillDetailProps
 
       {/* Related Skills */}
       {relatedSkills.length > 0 && (
-        <div className="animate-slide-up" style={{ animationDelay: '480ms' }}>
+        <div className="animate-slide-up" style={{ animationDelay: `${6 * ANIMATION_DELAY_STEP}ms` }}>
           <div className="mt-4">
             <h3 className="text-sm uppercase tracking-wider text-gray-500 mb-2">Related Skills</h3>
             <div className="flex flex-wrap gap-2">
@@ -185,7 +185,7 @@ export function SkillDetail({ node, relatedNodes, onNavigate }: SkillDetailProps
         );
         if (evolutionNodes.length === 0) return null;
         return (
-          <div className="animate-slide-up" style={{ animationDelay: '560ms' }}>
+          <div className="animate-slide-up" style={{ animationDelay: `${7 * ANIMATION_DELAY_STEP}ms` }}>
             <div className="mt-6 border border-dashed border-purple-500/30 bg-purple-500/5 rounded-lg p-4">
               <div className="flex items-center gap-2 mb-3">
                 <Sparkles className="w-4 h-4 text-purple-400" />

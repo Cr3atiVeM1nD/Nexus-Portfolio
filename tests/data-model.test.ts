@@ -90,8 +90,8 @@ describe("NexusNode type discrimination", () => {
   });
 
   it("should reject invalid NodeType values at compile time", () => {
-    const validTypes: NodeType[] = ["core", "skill", "project", "concept"];
-    expect(validTypes).toHaveLength(4);
+    const validTypes: NodeType[] = ["core", "skill", "project", "concept", "contact"];
+    expect(validTypes).toHaveLength(5);
     expect(validTypes).toContain("core");
     expect(validTypes).toContain("skill");
     expect(validTypes).toContain("project");

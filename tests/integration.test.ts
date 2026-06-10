@@ -85,9 +85,9 @@ describe("Cross-file integrity: nodes + edges + projects", () => {
       }
 
       if (edge.relation === "powers") {
-        // Source should be core, target should be skill
+        // Source should be core, target should be skill or contact
         expect(sourceNode?.type === "core").toBe(true);
-        expect(targetNode?.type === "skill").toBe(true);
+        expect(targetNode?.type === "skill" || targetNode?.type === "contact").toBe(true);
       }
     }
 

@@ -2,6 +2,7 @@ import { type NexusNode, type SkillNode } from "@/lib/types";
 import { SkillCard } from "./SkillCard";
 import { ProjectCard } from "./ProjectCard";
 import { ConceptCard } from "./ConceptCard";
+import { ContactCard } from "./ContactCard";
 
 interface NodeCardProps {
   node: NexusNode;
@@ -62,6 +63,10 @@ export function NodeCard({ node, allNodes, selectedNodeId, onClick }: NodeCardPr
           skillNodes={resolveSkillNodes(node, allNodes)}
           isSelected={isSelected}
         />
+      );
+    case "contact":
+      return wrapped(
+        <ContactCard node={node} isSelected={isSelected} />
       );
     default:
       return null;

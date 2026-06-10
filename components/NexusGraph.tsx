@@ -11,6 +11,7 @@ import {
   type SimulationLinkDatum,
   type Simulation,
 } from "d3-force";
+import { COLLIDE_RADIUS } from "@/lib/constants";
 import type { NexusData } from "@/lib/types";
 import { GraphNode } from "./GraphNode";
 import { GraphEdge } from "./GraphEdge";
@@ -175,15 +176,7 @@ export function NexusGraph({
       .force("center", forceCenter(width / 2, height / 2))
       .force(
         "collide",
-        forceCollide().radius((d: any) => {
-        switch (d.type) {
-          case "core": return 42;
-          case "skill": return 30;
-          case "project": return 28;
-          case "concept": return 32;
-          default: return 30;
-        }
-      })
+        forceCollide().radius((d: any) => COLLIDE_RADIUS[d.type] || 30)
       )
       .alpha(1)
       .restart();

@@ -3,6 +3,7 @@
 import type { CoreNode, RelatedNode } from "@/lib/types";
 import { Sparkles } from "lucide-react";
 import { getRelationBadgeClasses } from "@/lib/style-helpers";
+import { ANIMATION_DELAY_STEP } from "@/lib/constants";
 
 
 interface CoreDetailProps {
@@ -32,13 +33,13 @@ export function CoreDetail({
   return (
     <div>
       {/* Header */}
-      <div className="animate-slide-up" style={{ animationDelay: "0ms" }}>
+      <div className="animate-slide-up" style={{ animationDelay: `${0 * ANIMATION_DELAY_STEP}ms` }}>
         <h2 className="text-white text-2xl font-bold">{node.label}</h2>
         <p className="text-cyan-400 text-lg font-medium">{node.subtitle}</p>
       </div>
 
       {/* Stats Grid */}
-      <div className="animate-slide-up" style={{ animationDelay: "80ms" }}>
+      <div className="animate-slide-up" style={{ animationDelay: `${1 * ANIMATION_DELAY_STEP}ms` }}>
         <div className="grid grid-cols-3 gap-4">
           <div>
             <p className="text-3xl font-bold text-white">{skillCount}</p>
@@ -62,7 +63,7 @@ export function CoreDetail({
       </div>
 
       {/* Mission Statement */}
-      <div className="animate-slide-up" style={{ animationDelay: "160ms" }}>
+      <div className="animate-slide-up" style={{ animationDelay: `${2 * ANIMATION_DELAY_STEP}ms` }}>
         <div className="bg-neutral-900/50 border-l-4 border-cyan-400 rounded-r-md p-4">
           <h3 className="text-sm uppercase tracking-wider text-gray-500 mb-1">
             Mission
@@ -73,7 +74,7 @@ export function CoreDetail({
 
       {/* Connected Skills */}
       {skillRelated.length > 0 && (
-        <div className="animate-slide-up" style={{ animationDelay: "240ms" }}>
+        <div className="animate-slide-up" style={{ animationDelay: `${3 * ANIMATION_DELAY_STEP}ms` }}>
           <h3 className="text-sm uppercase tracking-wider text-gray-500 mb-2">
             Connected Skills
           </h3>
@@ -101,7 +102,7 @@ export function CoreDetail({
 
       {/* Other Related Nodes */}
       {otherRelated.length > 0 && (
-        <div className="animate-slide-up" style={{ animationDelay: "320ms" }}>
+        <div className="animate-slide-up" style={{ animationDelay: `${4 * ANIMATION_DELAY_STEP}ms` }}>
           <h3 className="text-sm uppercase tracking-wider text-gray-500 mb-2">
             Related Nodes
           </h3>
@@ -134,7 +135,7 @@ export function CoreDetail({
         );
         if (evolutionNodes.length === 0) return null;
         return (
-          <div className="animate-slide-up" style={{ animationDelay: "400ms" }}>
+          <div className="animate-slide-up" style={{ animationDelay: `${5 * ANIMATION_DELAY_STEP}ms` }}>
             <div className="mt-4 border border-dashed border-purple-500/30 bg-purple-500/5 rounded-lg p-4">
               <div className="flex items-center gap-2 mb-3">
                 <Sparkles className="w-4 h-4 text-purple-400" />

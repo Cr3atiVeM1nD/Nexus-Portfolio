@@ -10,6 +10,7 @@ import {
   Sparkles,
   type LucideIcon,
 } from "lucide-react";
+import { GAUGE_THRESHOLDS } from "@/lib/constants";
 
 const ICON_MAP: Record<string, LucideIcon> = {
   brain: Brain,
@@ -28,8 +29,8 @@ interface SkillCardProps {
 }
 
 function getProficiencyColor(proficiency: number): string {
-  if (proficiency > 80) return "bg-emerald-500";
-  if (proficiency > 60) return "bg-amber-500";
+  if (proficiency > GAUGE_THRESHOLDS.high) return "bg-emerald-500";
+  if (proficiency > GAUGE_THRESHOLDS.medium) return "bg-amber-500";
   return "bg-red-500";
 }
 

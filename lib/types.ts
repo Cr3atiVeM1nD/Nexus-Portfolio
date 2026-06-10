@@ -1,4 +1,4 @@
-export type NodeType = "core" | "skill" | "project" | "concept";
+export type NodeType = "core" | "skill" | "project" | "concept" | "contact";
 export type ProjectStatus = "production" | "development" | "experiment" | "concept" | "archived";
 export type SkillCategory =
   | "ai-systems"
@@ -50,7 +50,14 @@ export interface ConceptNode extends BaseNode {
   relatedSkills: string[];
 }
 
-export type NexusNode = CoreNode | SkillNode | ProjectNode | ConceptNode;
+export interface ContactNode extends BaseNode {
+  type: "contact";
+  email?: string;
+  github?: string;
+  linkedin?: string;
+}
+
+export type NexusNode = CoreNode | SkillNode | ProjectNode | ConceptNode | ContactNode;
 
 export interface Edge {
   id: string;

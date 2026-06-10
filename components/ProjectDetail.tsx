@@ -2,6 +2,7 @@
 
 import { type ProjectNode, type ProjectDetail as ProjectDetailType, type SkillNode, type RelatedNode } from "@/lib/types";
 import { getRelationBadgeClasses, STATUS_STYLES } from "@/lib/style-helpers";
+import { ANIMATION_DELAY_STEP } from "@/lib/constants";
 import { Check, Code2, Sparkles } from "lucide-react";
 
 interface ProjectDetailProps {
@@ -18,7 +19,7 @@ export function ProjectDetail({ node, detail, skillNodes, relatedNodes, onNaviga
   return (
     <div className="p-6">
       {/* Header + Status */}
-      <div className="animate-slide-up" style={{ animationDelay: '0ms' }}>
+      <div className="animate-slide-up" style={{ animationDelay: `${0 * ANIMATION_DELAY_STEP}ms` }}>
         <div className="flex items-start justify-between mb-1">
           <h2 className="text-2xl font-bold text-white">{node.label}</h2>
           <span
@@ -37,7 +38,7 @@ export function ProjectDetail({ node, detail, skillNodes, relatedNodes, onNaviga
 
       {/* Timeline */}
       {detail?.timeline && (
-        <div className="animate-slide-up" style={{ animationDelay: '80ms' }}>
+        <div className="animate-slide-up" style={{ animationDelay: `${1 * ANIMATION_DELAY_STEP}ms` }}>
           <div className="mt-2">
             <div className="relative h-2 bg-neutral-800 rounded-full overflow-hidden">
               <div className="h-full rounded-full bg-gradient-to-r from-cyan-500 to-purple-500 w-2/3" />
@@ -51,7 +52,7 @@ export function ProjectDetail({ node, detail, skillNodes, relatedNodes, onNaviga
       )}
 
       {/* Description */}
-      <div className="animate-slide-up" style={{ animationDelay: '160ms' }}>
+      <div className="animate-slide-up" style={{ animationDelay: `${2 * ANIMATION_DELAY_STEP}ms` }}>
         <p className="text-gray-300 mt-6">
           {detail?.longDescription ?? node.description}
         </p>
@@ -59,7 +60,7 @@ export function ProjectDetail({ node, detail, skillNodes, relatedNodes, onNaviga
 
       {/* Features */}
       {detail?.features && detail.features.length > 0 && (
-        <div className="animate-slide-up" style={{ animationDelay: '240ms' }}>
+        <div className="animate-slide-up" style={{ animationDelay: `${3 * ANIMATION_DELAY_STEP}ms` }}>
           <div className="mt-6">
             <h3 className="text-sm uppercase tracking-wider text-gray-500 mb-2">
               Features
@@ -78,7 +79,7 @@ export function ProjectDetail({ node, detail, skillNodes, relatedNodes, onNaviga
 
       {/* Tech Stack */}
       {detail?.techStack && detail.techStack.length > 0 && (
-        <div className="animate-slide-up" style={{ animationDelay: '320ms' }}>
+        <div className="animate-slide-up" style={{ animationDelay: `${4 * ANIMATION_DELAY_STEP}ms` }}>
           <div className="mt-6">
             <h3 className="text-sm uppercase tracking-wider text-gray-500 mb-2">
               Tech Stack
@@ -100,7 +101,7 @@ export function ProjectDetail({ node, detail, skillNodes, relatedNodes, onNaviga
 
       {/* Screenshots */}
       {(detail?.screenshots && detail.screenshots.length > 0) ? (
-        <div className="animate-slide-up" style={{ animationDelay: '400ms' }}>
+        <div className="animate-slide-up" style={{ animationDelay: `${5 * ANIMATION_DELAY_STEP}ms` }}>
           <div className="mt-6">
             <h3 className="text-sm uppercase tracking-wider text-gray-500 mb-2">Screenshots</h3>
             <div className="grid grid-cols-2 gap-2">
@@ -113,7 +114,7 @@ export function ProjectDetail({ node, detail, skillNodes, relatedNodes, onNaviga
           </div>
         </div>
       ) : (
-        <div className="animate-slide-up" style={{ animationDelay: '400ms' }}>
+        <div className="animate-slide-up" style={{ animationDelay: `${5 * ANIMATION_DELAY_STEP}ms` }}>
           <div className="bg-neutral-900 rounded-md p-8 text-center text-gray-500 text-sm mt-6">
             Screenshots coming soon
           </div>
@@ -122,7 +123,7 @@ export function ProjectDetail({ node, detail, skillNodes, relatedNodes, onNaviga
 
       {/* Links */}
       {detail?.links && detail.links.length > 0 && (
-        <div className="animate-slide-up" style={{ animationDelay: '440ms' }}>
+        <div className="animate-slide-up" style={{ animationDelay: `${(5 * ANIMATION_DELAY_STEP) + 40}ms` }}>
           <div className="mt-6">
             <h3 className="text-sm uppercase tracking-wider text-gray-500 mb-2">
               Links
@@ -153,7 +154,7 @@ export function ProjectDetail({ node, detail, skillNodes, relatedNodes, onNaviga
 
       {/* Skill nodes */}
       {skillNodes.length > 0 && (
-        <div className="animate-slide-up" style={{ animationDelay: '480ms' }}>
+        <div className="animate-slide-up" style={{ animationDelay: `${6 * ANIMATION_DELAY_STEP}ms` }}>
           <div className="mt-6">
             <h3 className="text-sm uppercase tracking-wider text-gray-500 mb-2">
               Skills
@@ -175,7 +176,7 @@ export function ProjectDetail({ node, detail, skillNodes, relatedNodes, onNaviga
 
       {/* Related Nodes */}
       {relatedNodes.length > 0 && (
-        <div className="animate-slide-up" style={{ animationDelay: '560ms' }}>
+        <div className="animate-slide-up" style={{ animationDelay: `${7 * ANIMATION_DELAY_STEP}ms` }}>
           <div className="mt-6">
             <h3 className="text-sm uppercase tracking-wider text-gray-500 mb-2">
               Related Nodes
@@ -205,7 +206,7 @@ export function ProjectDetail({ node, detail, skillNodes, relatedNodes, onNaviga
         );
         if (evolutionNodes.length === 0) return null;
         return (
-          <div className="animate-slide-up" style={{ animationDelay: '640ms' }}>
+          <div className="animate-slide-up" style={{ animationDelay: `${8 * ANIMATION_DELAY_STEP}ms` }}>
             <div className="mt-6 border border-dashed border-purple-500/30 bg-purple-500/5 rounded-lg p-4">
               <div className="flex items-center gap-2 mb-3">
                 <Sparkles className="w-4 h-4 text-purple-400" />

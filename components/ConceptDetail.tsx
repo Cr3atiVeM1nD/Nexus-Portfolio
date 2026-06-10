@@ -9,9 +9,8 @@ import type {
 } from "@/lib/types";
 import { Sparkles } from "lucide-react";
 import { getRelationBadgeClasses } from "@/lib/style-helpers";
+import { GAUGE_RADIUS, GAUGE_CIRCUMFERENCE, ANIMATION_DELAY_STEP } from "@/lib/constants";
 
-
-const circumference = 2 * Math.PI * 40;
 
 interface ConceptDetailProps {
   node: ConceptNode;
@@ -27,7 +26,7 @@ export function ConceptDetail({
   onNavigate,
 }: ConceptDetailProps) {
 
-  const offset = circumference * (1 - node.feasibility / 100);
+  const offset = GAUGE_CIRCUMFERENCE * (1 - node.feasibility / 100);
 
   const relatedProjects = relatedNodes.filter(
     (r) => r.node.type === "project"
@@ -57,7 +56,7 @@ export function ConceptDetail({
     <div key="gauge" className="animate-slide-up flex flex-col items-center">
       <svg viewBox="0 0 100 100" className="w-28 h-28">
         <circle
-          r="40"
+          r={GAUGE_RADIUS}
           cx="50"
           cy="50"
           fill="none"
@@ -65,14 +64,14 @@ export function ConceptDetail({
           strokeWidth="8"
         />
         <circle
-          r="40"
+          r={GAUGE_RADIUS}
           cx="50"
           cy="50"
           fill="none"
           stroke="rgb(192 132 252)"
           strokeWidth="8"
           strokeLinecap="round"
-          strokeDasharray={`${circumference} ${circumference}`}
+          strokeDasharray={`${GAUGE_CIRCUMFERENCE} ${GAUGE_CIRCUMFERENCE}`}
           strokeDashoffset={offset}
           transform="rotate(-90 50 50)"
         />
@@ -212,7 +211,7 @@ export function ConceptDetail({
       {visibleSections.map((section, index) => (
         <div
           key={index}
-          style={{ animationDelay: `${index * 80}ms` }}
+          style={{ animationDelay: `${index * ANIMATION_DELAY_STEP}ms` }}
         >
           {section}
         </div>

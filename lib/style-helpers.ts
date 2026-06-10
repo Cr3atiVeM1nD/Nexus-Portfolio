@@ -1,3 +1,5 @@
+import { GAUGE_THRESHOLDS, STATUS_STYLES } from "@/lib/constants";
+
 export function getRelationBadgeClasses(relation: string): string {
   const baseRelation = relation.replace(/ \(incoming\)$/, "");
   switch (baseRelation) {
@@ -15,15 +17,9 @@ export function getRelationBadgeClasses(relation: string): string {
 }
 
 export function getGaugeStrokeColor(value: number): string {
-  if (value > 80) return "rgb(52 211 153)";
-  if (value > 60) return "rgb(251 191 36)";
-  return "rgb(248 113 113)";
+  if (value > GAUGE_THRESHOLDS.high) return GAUGE_THRESHOLDS.highColor;
+  if (value > GAUGE_THRESHOLDS.medium) return GAUGE_THRESHOLDS.mediumColor;
+  return GAUGE_THRESHOLDS.lowColor;
 }
 
-export const STATUS_STYLES: Record<string, string> = {
-  production: "bg-green-500/20 text-green-400",
-  development: "bg-blue-500/20 text-blue-400",
-  experiment: "bg-amber-500/20 text-amber-400",
-  concept: "bg-purple-500/20 text-purple-400",
-  archived: "bg-gray-500/20 text-gray-400",
-};
+export { STATUS_STYLES } from "@/lib/constants";

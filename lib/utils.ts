@@ -3,7 +3,7 @@ import nodesData from "../data/nodes.json";
 import edgesData from "../data/edges.json";
 import projectsData from "../data/projects.json";
 
-const VALID_NODE_TYPES = ["core", "skill", "project", "concept"] as const;
+const VALID_NODE_TYPES = ["core", "skill", "project", "concept", "contact"] as const;
 const VALID_RELATIONS = ["powers", "contains", "related-to", "evolves-into"] as const;
 
 function isObject(value: unknown): value is Record<string, unknown> {

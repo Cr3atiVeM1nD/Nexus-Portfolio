@@ -56,3 +56,11 @@ next-env.d.ts
 # aider-desk internal
 .aider-desk/
 .aider.*
+
+# ai prompts & agency
+prompts/
+AGENCY_BOARD.md
+
+# local planning docs
+docs/
+.codegraph/

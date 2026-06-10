@@ -34,6 +34,7 @@ const TYPE_LABELS: { type: NodeType; label: string }[] = [
   { type: "skill", label: "Skills" },
   { type: "project", label: "Projects" },
   { type: "concept", label: "Concepts" },
+  { type: "contact", label: "Contact" },
 ];
 
 export function FilterBar({

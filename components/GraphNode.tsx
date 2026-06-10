@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { NexusNode } from '@/lib/types';
+import { NODE_RADIUS, NODE_FILL } from '@/lib/constants';
 
 interface GraphNodeProps {
   node: NexusNode;
@@ -31,20 +32,8 @@ export function GraphNode({
   onPointerLeave,
 }: GraphNodeProps) {
   const [isDragging, setIsDragging] = useState(false);
-  const radiusByType: Record<string, number> = {
-    core: 32,
-    skill: 20,
-    project: 18,
-    concept: 22,
-  };
-  const fillByType: Record<string, string> = {
-    core: 'rgb(34, 211, 238)',
-    skill: 'rgb(96, 165, 250)',
-    project: 'rgb(251, 191, 36)',
-    concept: 'rgb(192, 132, 252)',
-  };
-  const r = radiusByType[node.type] || 18;
-  const fill = fillByType[node.type] || 'rgb(192, 132, 252)';
+  const r = NODE_RADIUS[node.type] || 22;
+  const fill = NODE_FILL[node.type] || 'rgb(192, 132, 252)';
 
   let opacity: number;
   if (scanModeActive && !scanHighlighted) {

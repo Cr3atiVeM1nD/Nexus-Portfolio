@@ -181,12 +181,22 @@
     "relatedSkills": ["ai-systems", "business-tools", "automation"]
   },
   {
+    "id": "devops-infra",
+    "type": "skill",
+    "label": "DevOps & Infrastructure",
+    "category": "automation",
+    "proficiency": 75,
+    "icon": "zap",
+    "technologies": ["Docker","Kubernetes","Terraform","CI/CD","AWS","Linux"],
+    "description": "Designing and managing cloud infrastructure, container orchestration, and automated deployment pipelines"
+  },
+  {
     "id": "contact",
-    "type": "concept",
+    "type": "contact",
     "label": "Contact / Hire",
     "description": "Explore collaboration opportunities",
-    "status": "concept",
-    "feasibility": 100,
-    "relatedSkills": []
+    "email": "",
+    "github": "Cr3atiVeM1nD",
+    "linkedin": "Coming Soon"
   }
 ]

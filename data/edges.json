@@ -234,7 +234,42 @@
     "id": "edge-core-contact",
     "source": "core",
     "target": "contact",
+    "relation": "powers",
+    "strength": 0.3
+  },
+  {
+    "id": "edge-core-devops",
+    "source": "core",
+    "target": "devops-infra",
+    "relation": "powers",
+    "strength": 0.75
+  },
+  {
+    "id": "edge-devops-nexus",
+    "source": "devops-infra",
+    "target": "proj-nexus",
+    "relation": "contains",
+    "strength": 0.6
+  },
+  {
+    "id": "edge-devops-crm",
+    "source": "devops-infra",
+    "target": "proj-crm-automation",
+    "relation": "contains",
+    "strength": 0.7
+  },
+  {
+    "id": "edge-auto-devops",
+    "source": "automation",
+    "target": "devops-infra",
     "relation": "related-to",
+    "strength": 0.8
+  },
+  {
+    "id": "edge-devops-viz",
+    "source": "devops-infra",
+    "target": "proj-viz-engine",
+    "relation": "contains",
     "strength": 0.5
   }
 ]

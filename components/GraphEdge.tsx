@@ -1,4 +1,5 @@
 import React from "react";
+import { EDGE_COLORS } from "@/lib/constants";
 
 interface GraphEdgeProps {
   sourceX: number;
@@ -10,12 +11,6 @@ interface GraphEdgeProps {
   highlighted: boolean;
 }
 
-const colorMap: Record<GraphEdgeProps["relation"], string> = {
-  powers: "rgb(34, 211, 238)",
-  contains: "rgb(115, 115, 115)",
-  "related-to": "rgb(74, 222, 128)",
-  "evolves-into": "rgb(168, 85, 247)",
-};
 
 export const GraphEdge: React.FC<GraphEdgeProps> = ({
   sourceX,
@@ -26,7 +21,7 @@ export const GraphEdge: React.FC<GraphEdgeProps> = ({
   strength,
   highlighted,
 }) => {
-  const strokeColor = colorMap[relation];
+  const strokeColor = EDGE_COLORS[relation];
   const strokeWidth = Math.max(1, strength * 2.5);
   const opacity = highlighted ? 1 : 0.3;
 

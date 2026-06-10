@@ -17,7 +17,7 @@ const nodes = nodesData as unknown as NexusNode[];
 const edges = edgesData as unknown as Edge[];
 const projects = projectsData as Record<string, unknown>[];
 
-const VALID_NODE_TYPES = ["core", "skill", "project", "concept"] as const;
+const VALID_NODE_TYPES = ["core", "skill", "project", "concept", "contact"] as const;
 const VALID_RELATIONS = ["powers", "contains", "related-to", "evolves-into"] as const;
 const VALID_STATUSES: ProjectStatus[] = [
   "production",

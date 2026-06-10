@@ -1,4 +1,5 @@
 import { type ProjectNode, type SkillNode } from "@/lib/types";
+import { STATUS_STYLES } from "@/lib/style-helpers";
 
 interface ProjectCardProps {
   node: ProjectNode;
@@ -6,13 +7,6 @@ interface ProjectCardProps {
   isSelected: boolean;
 }
 
-const STATUS_STYLES: Record<string, string> = {
-  production: "bg-green-500/20 text-green-400",
-  development: "bg-blue-500/20 text-blue-400",
-  experiment: "bg-amber-500/20 text-amber-400",
-  concept: "bg-purple-500/20 text-purple-400",
-  archived: "bg-gray-500/20 text-gray-400",
-};
 
 export function ProjectCard({ node, skillNodes, isSelected }: ProjectCardProps) {
   return (
