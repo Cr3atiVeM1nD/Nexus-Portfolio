@@ -64,3 +64,6 @@ AGENCY_BOARD.md
 # local planning docs
 docs/
 .codegraph/
+.aider*
+PHASEN_PLAN_*
+PROJEKT_MASTERPLAN.md
