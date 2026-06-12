@@ -1,3 +1,4 @@
+"use client";
 import { type NexusNode, type SkillNode } from "@/lib/types";
 import { SkillCard } from "./SkillCard";
 import { ProjectCard } from "./ProjectCard";

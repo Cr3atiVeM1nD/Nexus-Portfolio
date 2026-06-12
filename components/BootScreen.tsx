@@ -28,15 +28,13 @@ const STEP_TIMINGS: number[] = [
 export function BootScreen({ onComplete }: BootScreenProps) {
   const [step, setStep] = useState<number>(0);
   const [fadingOut, setFadingOut] = useState<boolean>(false);
-  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const timeoutIdsRef = useRef<Set<number>>(new Set());
   const isSkippedRef = useRef<boolean>(false);
 
   // Cleanup all pending timeouts on unmount
   const clearAllTimeouts = useCallback(() => {
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-      timeoutRef.current = null;
-    }
+    timeoutIdsRef.current.forEach((id) => clearTimeout(id));
+    timeoutIdsRef.current.clear();
   }, []);
 
   useEffect(() => {
@@ -53,20 +51,16 @@ export function BootScreen({ onComplete }: BootScreenProps) {
     // schedule steps
     const scheduleSteps = () => {
       STEP_TIMINGS.forEach((delay, index) => {
-        const timeout = setTimeout(() => {
+        const timeout = window.setTimeout(() => {
           if (isSkippedRef.current) return;
           if (index < STEP_TIMINGS.length - 1) {
             setStep(index + 1);
           } else {
-            // step 6: trigger fade-out
             setStep(index);
             setFadingOut(true);
           }
         }, delay);
-        // keep reference of the last timeout for cleanup later
-        if (index === STEP_TIMINGS.length - 1) {
-          timeoutRef.current = timeout;
-        }
+        timeoutIdsRef.current.add(timeout);
       });
     };
 
@@ -78,9 +72,10 @@ export function BootScreen({ onComplete }: BootScreenProps) {
   }, [onComplete, clearAllTimeouts]);
 
   useEffect(() => {
+    let t: number;
     if (fadingOut) {
       // after 500ms call onComplete and set sessionStorage
-      const t = setTimeout(() => {
+      t = window.setTimeout(() => {
         if (isSkippedRef.current) return;
         try {
           sessionStorage.setItem("nexus-boot-seen", "true");
@@ -89,12 +84,12 @@ export function BootScreen({ onComplete }: BootScreenProps) {
         }
         onComplete();
       }, 500);
-      timeoutRef.current = t;
+      timeoutIdsRef.current.add(t);
     }
     return () => {
-      if (timeoutRef.current && fadingOut) {
-        clearTimeout(timeoutRef.current);
-        timeoutRef.current = null;
+      if (fadingOut) {
+        clearTimeout(t);
+        timeoutIdsRef.current.delete(t);
       }
     };
   }, [fadingOut, onComplete]);

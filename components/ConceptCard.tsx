@@ -1,3 +1,4 @@
+"use client";
 import { type ConceptNode, type SkillNode } from "@/lib/types";
 
 interface ConceptCardProps {

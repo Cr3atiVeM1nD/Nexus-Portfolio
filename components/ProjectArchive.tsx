@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { X, ExternalLink, Github } from "lucide-react";
 import type { ProjectDetail, ProjectNode, SkillNode } from "@/lib/types";
 import { STATUS_STYLES } from "@/lib/style-helpers";
+import { getProjectDetail } from "@/lib/utils";
 
 interface ProjectArchiveProps {
   projects: ProjectDetail[];
@@ -32,10 +33,6 @@ export function ProjectArchive({
   }, [isOpen, onClose]);
 
   if (!isOpen) return null;
-
-  const getProjectDetail = (id: string): ProjectDetail | undefined => {
-    return projects.find((p) => p.id === id);
-  };
 
   const getSkillLabels = (skillIds: string[]): { id: string; label: string }[] => {
     return skillIds

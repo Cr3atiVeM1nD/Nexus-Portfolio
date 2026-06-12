@@ -1,3 +1,4 @@
+"use client";
 import { type ProjectNode, type SkillNode } from "@/lib/types";
 import { STATUS_STYLES } from "@/lib/style-helpers";
 

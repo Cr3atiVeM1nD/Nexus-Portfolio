@@ -3,7 +3,8 @@
 import { type ProjectNode, type ProjectDetail as ProjectDetailType, type SkillNode, type RelatedNode } from "@/lib/types";
 import { getRelationBadgeClasses, STATUS_STYLES } from "@/lib/style-helpers";
 import { ANIMATION_DELAY_STEP } from "@/lib/constants";
-import { Check, Code2, Sparkles } from "lucide-react";
+import { Check, Code2 } from "lucide-react";
+import NextEvolution from "./NextEvolution";
 
 interface ProjectDetailProps {
   node: ProjectNode;
@@ -200,35 +201,9 @@ export function ProjectDetail({ node, detail, skillNodes, relatedNodes, onNaviga
       )}
 
       {/* Next Evolution */}
-      {(() => {
-        const evolutionNodes = relatedNodes.filter(
-          (rn) => rn.relation === "evolves-into" || rn.relation === "evolves-into (incoming)"
-        );
-        if (evolutionNodes.length === 0) return null;
-        return (
-          <div className="animate-slide-up" style={{ animationDelay: `${8 * ANIMATION_DELAY_STEP}ms` }}>
-            <div className="mt-6 border border-dashed border-purple-500/30 bg-purple-500/5 rounded-lg p-4">
-              <div className="flex items-center gap-2 mb-3">
-                <Sparkles className="w-4 h-4 text-purple-400" />
-                <h3 className="text-sm uppercase tracking-wider text-purple-400 font-medium">
-                  Next Evolution
-                </h3>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {evolutionNodes.map((rn) => (
-                  <button
-                    key={rn.node.id}
-                    onClick={() => onNavigate(rn.node.id)}
-                    className="text-sm bg-purple-500/10 text-purple-300 rounded-full px-3 py-1 hover:bg-purple-500/20 transition-colors border border-purple-500/20"
-                  >
-                    {rn.node.label}
-                  </button>
-                ))}
-              </div>
-            </div>
-          </div>
-        );
-      })()}
+      <div className="animate-slide-up mt-6" style={{ animationDelay: `${8 * ANIMATION_DELAY_STEP}ms` }}>
+        <NextEvolution relatedNodes={relatedNodes} onNavigate={onNavigate} />
+      </div>
     </div>
   );
 }

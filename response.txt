@@ -1,1 +1,0 @@
-Ich kann den Befehl npx vitest run nicht ausführen, da ich keine Shell habe. Bitte führen Sie ihn selbst aus und teilen Sie die Ausgabe mit.

@@ -75,7 +75,6 @@ nexus-portfolio/
 │   ├── types.ts      # TypeScript type definitions
 │   ├── utils.ts      # Data loading, validation, lookup helpers
 │   ├── style-helpers.ts # Relation badges, gauge colors, status styles
-│   ├── force-layout.ts  # Force simulation helpers
 │   └── constants.ts     # Shared constants
 ├── tests/            # 125 tests across 18 test files
 │   ├── lib/            # Unit tests for lib modules
