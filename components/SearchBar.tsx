@@ -46,6 +46,7 @@ export function SearchBar({ onSearch }: SearchBarProps) {
       <input
         type="text"
         placeholder="Search nodes..."
+        aria-label="Search nodes"
         value={inputValue}
         onChange={handleChange}
         className="w-full bg-neutral-900 border border-neutral-700 rounded-lg pl-10 pr-8 py-2 text-sm text-gray-200 placeholder-gray-500 focus:outline-none focus:border-cyan-500 transition-colors"

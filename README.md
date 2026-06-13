@@ -1,40 +1,41 @@
 # NEXUS: The Living Portfolio
 
-An interactive portfolio that visualizes a builder identity as a dynamic knowledge graph — skills, projects, and future concepts connected in a living network.
+An interactive portfolio that maps skills, projects, and ideas as a connected graph.
 
-**Status:** Phase 7 — Finalisierung & Launch (7.1 ✅, 7.2 ✅, 7.3–7.12 remaining)
+**Status:** Phase 7 -- Finalisierung & Launch (7.1 + 7.2 done, 7.3-7.12 in progress)
 
 ---
 
 ## What is NEXUS?
 
-NEXUS is not a normal portfolio. It is a futuristic, interactive skill, project, and idea network in the browser. Instead of a simple list of projects, visitors explore a living system:
+NEXUS is a portfolio, but not the usual one. Instead of a list of projects on a page, it shows everything as a living network. Visitors can move between a force-directed graph and a card grid, filter by type or category, and open detail panels for deeper information.
 
 ### Core Features
-- **CoreHero** — BUILDER CORE with Typewriter animation, stats counter, mission statement
-- **Force-directed graph** — Physics-based layout with d3-force, pan/zoom/drag, hover highlighting
-- **Grid View** — Card-based browsing toggle for all nodes
-- **FilterBar** — Filter by type (Skill/Project/Concept), Skill Category, Project Status
-- **DetailPanel** — Slide-in panel from right with backdrop overlay, Escape-key support, smooth transitions
-- **SkillDetail** — Circular proficiency gauge (SVG), category icons, technologies, related projects/concepts/skills
-- **ProjectDetail** — Timeline bar with gradient, features checklist, tech stack grid, screenshots, links
-- **ConceptDetail** — Circular feasibility gauge (SVG), related skills/projects, concept badge
-- **CoreDetail** — Stats grid (Skills/Projects/Concepts), mission statement, connected skills with relation badges
-- **"Next Evolution"** — Dashed-border purple section in every detail view showing future growth paths
-- **Project Archive** — Fullscreen overlay grid exploring all projects with details, skill pills, tech stack, and external links
-- **Staggered reveal animations** — `animate-slide-up` with incremental delays on all detail content
-- **Relation badges** — Color-coded chips for "powers", "contains", "related-to", "evolves-into"
-- **Dark Brutalist / Cyberpunk aesthetic** — Black backgrounds, neon accents, gradient borders
-- **BootScreen** — 6-step cinematic initialization sequence with click-to-skip and sessionStorage persistence
-- **ScanModeButton** — 3 visual states (idle/active/complete) triggering sequential cluster analysis
-- **Scan Mode** — Highlights 8 clusters sequentially (1.5s per cluster), proficiency-based status badges (online/active/prototype/experimental), node dimming and pulse-glow effects
-- **ContactPanel** — Centered dialog with Mail/GitHub/LinkedIn contact methods, Escape-key support, smooth backdrop overlay
+
+- **CoreHero** -- BUILDER CORE with typewriter animation, stats counter, mission text
+- **Force-directed graph** -- Physics-based layout using d3-force. Pan, zoom, drag, hover highlight.
+- **Grid View** -- Toggle to card-based browsing for all nodes
+- **FilterBar** -- Filter by type (Skill/Project/Concept), Skill Category, Project Status
+- **DetailPanel** -- Slide-in panel from the right with backdrop overlay, Escape key support
+- **SkillDetail** -- Circular SVG proficiency gauge, category icons, technologies, related projects
+- **ProjectDetail** -- Timeline bar, features checklist, tech stack grid, screenshots, links
+- **ConceptDetail** -- Circular SVG feasibility gauge, related skills/projects, concept badge
+- **CoreDetail** -- Stats grid, mission statement, connected skills with relation badges
+- **"Next Evolution"** -- Dashed-border purple section showing future growth paths in every detail view
+- **Project Archive** -- Fullscreen overlay grid for all projects with details, skill pills, tech stack, external links
+- **Staggered reveal animations** -- Components fade in with incremental delays on detail content
+- **Relation badges** -- Color-coded chips: "powers", "contains", "related-to", "evolves-into"
+- **Dark Brutalist / Cyberpunk look** -- Black backgrounds, neon cyan accents, gradient borders
+- **BootScreen** -- 6-step cinematic boot sequence with click-to-skip, remembers state in sessionStorage
+- **ScanModeButton** -- Three visual states (idle/active/complete) that trigger cluster analysis
+- **Scan Mode** -- Highlights 8 clusters one by one (1.5s per cluster), proficiency-based status badges (online/active/prototype/experimental), dims other nodes, pulse-glow effect
+- **ContactPanel** -- Centered dialog with Mail/GitHub/LinkedIn, Escape key support
 
 ---
 
 ## Design System
 
-NEXUS uses a Dark Brutalist aesthetic with cyberpunk neon accents:
+NEXUS uses a dark brutalist style with neon accents.
 
 | Token      | Value                        |
 |------------|------------------------------|
@@ -66,53 +67,49 @@ NEXUS uses a Dark Brutalist aesthetic with cyberpunk neon accents:
 
 ```
 nexus-portfolio/
-├── app/              # Next.js App Router
-│   ├── page.tsx         # Home page
-│   ├── layout.tsx       # Root layout (Geist Mono font)
-│   ├── globals.css      # Global styles & animations
-│   ├── error.tsx        # Brutalist error boundary
-│   ├── global-error.tsx # Root error boundary (self-contained)
-│   ├── loading.tsx      # NEXUS Pulsar loading animation
-│   └── not-found.tsx    # Brutalist 404 page
-├── components/       # 22 React components
-│   ├── BootScreen.tsx # Cinematic initialization sequence
-│   ├── CoreHero.tsx   # Hero section with stats
-│   ├── FilterBar.tsx # Type / Category / Status filters
-│   ├── NexusExplorer.tsx # Main explorer orchestrator
-│   ├── NexusGraph.tsx # Force-directed graph (d3)
-│   ├── GraphNode.tsx / GraphEdge.tsx # Graph primitives
-│   ├── NodeCard.tsx  # Dispatcher → SkillCard / ProjectCard / ConceptCard
-│   ├── SkillCard.tsx / ProjectCard.tsx / ConceptCard.tsx
-│   ├── DetailPanel.tsx # Slide-in panel container
-│   ├── SkillDetail.tsx / ProjectDetail.tsx / ConceptDetail.tsx / CoreDetail.tsx
-│   ├── ProjectArchive.tsx # Fullscreen archive overlay
-│   ├── ScanModeButton.tsx # 3-state scan mode trigger
-│   ├── ContactPanel.tsx   # Centered contact dialog
-│   └── ViewToggle.tsx
-├── data/             # Static data sources
-│   ├── nodes.json    # Node definitions (core, skills, projects, concepts)
-│   ├── edges.json    # Edge definitions (relations between nodes)
-│   └── projects.json # Extended project details (timeline, tech stack, links)
-├── lib/              # Core logic & utilities
-│   ├── types.ts      # TypeScript type definitions
-│   ├── utils.ts      # Data loading, validation, lookup helpers
-│   ├── style-helpers.ts # Relation badges, gauge colors, status styles
-│   ├── constants.ts     # Shared constants
-│   └── force-layout.ts  # d3-force simulation (SimulationNode, SimulationLink, createSimulation)
-├── tests/            # 125 tests across 18 test files
-│   ├── lib/            # Unit tests for lib modules
-│   ├── components/     # Component tests (Vitest + Testing Library)
-│   ├── data-model.test.ts
-│   ├── data-validation.test.ts
-│   ├── integration.test.ts
-│   ├── utils.test.ts      # Data loading & lookup helpers
-│   └── graph.test.tsx     # Graph & view rendering tests
-├── public/           # Static assets (favicon, etc.)
-├── docs/             # Architecture & planning (local only)
-├── next.config.ts
-├── eslint.config.mjs
-├── postcss.config.mjs
-└── .gitignore
++-- app/              # Next.js App Router
+|   +-- page.tsx         # Home page
+|   +-- layout.tsx       # Root layout (Geist Mono font)
+|   +-- globals.css      # Global styles and animations
+|   +-- error.tsx        # Error boundary
+|   +-- global-error.tsx # Root error boundary (self-contained)
+|   +-- loading.tsx      # Loading animation (NEXUS Pulsar)
+|   +-- not-found.tsx    # 404 page
++-- components/       # 22 React components
+|   +-- BootScreen.tsx   # Boot sequence
+|   +-- CoreHero.tsx     # Hero section with stats
+|   +-- FilterBar.tsx    # Type / Category / Status filters
+|   +-- NexusExplorer.tsx # Main explorer
+|   +-- NexusGraph.tsx   # Force-directed graph (d3)
+|   +-- GraphNode.tsx / GraphEdge.tsx
+|   +-- NodeCard.tsx     # Dispatches to SkillCard / ProjectCard / ConceptCard
+|   +-- SkillCard.tsx / ProjectCard.tsx / ConceptCard.tsx
+|   +-- DetailPanel.tsx  # Slide-in panel
+|   +-- SkillDetail.tsx / ProjectDetail.tsx / ConceptDetail.tsx / CoreDetail.tsx
+|   +-- ProjectArchive.tsx # Fullscreen archive
+|   +-- ScanModeButton.tsx
+|   +-- ContactPanel.tsx
+|   +-- ViewToggle.tsx
++-- data/             # Static data
+|   +-- nodes.json      # Node definitions
+|   +-- edges.json      # Edge definitions
+|   +-- projects.json   # Extended project details
++-- lib/              # Core logic
+|   +-- types.ts        # TypeScript types
+|   +-- utils.ts        # Data loading, validation, helpers
+|   +-- style-helpers.ts # Colors, badges, gauge thresholds
+|   +-- constants.ts
+|   +-- force-layout.ts  # d3-force simulation
++-- tests/            # 125+ tests
+|   +-- lib/            # Unit tests
+|   +-- components/     # Component tests (Vitest + Testing Library)
+|   +-- data-model.test.ts
+|   +-- data-validation.test.ts
+|   +-- integration.test.ts
+|   +-- utils.test.ts
+|   +-- graph.test.tsx
++-- public/           # Static files
++-- docs/             # Architecture docs (local only)
 ```
 
 ---
@@ -129,7 +126,7 @@ Open [http://localhost:3000](http://localhost:3000).
 ```bash
 npm run build    # production build
 npm run lint     # lint check
-npm test         # run all 125 tests (Vitest)
+npm test         # run all tests (Vitest)
 ```
 
 ---
@@ -138,15 +135,15 @@ npm test         # run all 125 tests (Vitest)
 
 | Phase | Scope                              | Status      |
 |-------|------------------------------------|-------------|
-| 1     | Next.js scaffold                   | ✅ Done     |
-| 2     | Data model & content foundation    | ✅ Done     |
-| 3     | Core UI components (cards, filter) | ✅ Done     |
-| 4     | Interactive graph (force-layout)   | ✅ Done     |
-| 5     | Detail views & polish              | ✅ Done     |
-| 6     | Bootscreen, Scan Mode & Contact    | ✅ Done     |
-| 7     | Search, animations, responsive     | 🟡 In Progress (7.1 ✅, 7.2 ✅, 7.3–7.12 remaining) |
-| 8     | Accessibility & QA                 | ⬜ Planned  |
-| 9     | Performance & deployment           | ⬜ Planned  |
+| 1     | Next.js scaffold                   | Done        |
+| 2     | Data model and content foundation  | Done        |
+| 3     | Core UI components (cards, filter) | Done        |
+| 4     | Interactive graph (force-layout)   | Done        |
+| 5     | Detail views and polish            | Done        |
+| 6     | Bootscreen, Scan Mode, Contact     | Done        |
+| 7     | Search, animations, responsive     | In Progress (7.1 + 7.2 done) |
+| 8     | Accessibility and QA               | Planned     |
+| 9     | Performance and deployment         | Planned     |
 
 ---
 
