@@ -2,32 +2,12 @@
 
 import { useState, useEffect, useRef, useCallback, useMemo } from "react";
 import {
-  forceSimulation,
-  forceLink,
-  forceManyBody,
-  forceCenter,
-  forceCollide,
-  type SimulationNodeDatum,
-  type SimulationLinkDatum,
   type Simulation,
 } from "d3-force";
-import { COLLIDE_RADIUS } from "@/lib/constants";
 import type { NexusData } from "@/lib/types";
+import { SimulationNode, SimulationLink, createSimulation } from "@/lib/force-layout";
 import { GraphNode } from "./GraphNode";
 import { GraphEdge } from "./GraphEdge";
-
-interface SimulationNode extends SimulationNodeDatum {
-  id: string;
-  type: string;
-  label: string;
-}
-interface SimulationLink extends SimulationLinkDatum<SimulationNode> {
-  id: string;
-  relation: string;
-  strength: number;
-  sourceId: string;
-  targetId: string;
-}
 
 interface PanState {
   active: boolean;
@@ -134,53 +114,9 @@ export function NexusGraph({
       simulationRef.current = null;
     }
 
-    const width = containerSize.width || 800;
-    const height = containerSize.height || 600;
-
-    const nodes: SimulationNode[] = data.nodes.map((n) => ({
-      id: n.id,
-      type: n.type,
-      label: n.label,
-      x: width / 2 + (Math.random() - 0.5) * width * 0.5,
-      y: height / 2 + (Math.random() - 0.5) * height * 0.5,
-    }));
-
-    // fix core node at centre
-    const coreNode = nodes.find((n) => n.type === "core");
-    if (coreNode) {
-      coreNode.fx = width / 2;
-      coreNode.fy = height / 2;
-    }
-
-    // Build links with string ids for d3, but keep original source/target strings
-    const links = data.edges.map((e) => ({
-      id: e.id,
-      source: e.source,
-      target: e.target,
-      relation: e.relation,
-      strength: e.strength,
-      sourceId: e.source,
-      targetId: e.target,
-    }));
-
+    const { sim, nodes, links } = createSimulation(data, containerSize.width || 800, containerSize.height || 600);
     originalNodesRef.current = nodes;
-
-    const sim = forceSimulation(nodes)
-      .force(
-        "link",
-        forceLink(links)
-          .id((d: any) => d.id)
-          .distance(120)
-      )
-      .force("charge", forceManyBody().strength(-300))
-      .force("center", forceCenter(width / 2, height / 2))
-      .force(
-        "collide",
-        forceCollide().radius((d: any) => COLLIDE_RADIUS[d.type] || 30)
-      )
-      .alpha(1)
-      .restart();
-
+    sim.restart();
     simulationRef.current = sim;
 
     let rafId: number | null = null;

@@ -2,7 +2,7 @@
 
 An interactive portfolio that visualizes a builder identity as a dynamic knowledge graph — skills, projects, and future concepts connected in a living network.
 
-**Status:** Phase 6 — Bootscreen, Scan Mode & Contact Node ✅
+**Status:** Phase 7 — Finalisierung & Launch (7.1 ✅, 7.2 ✅, 7.3–7.12 remaining)
 
 ---
 
@@ -32,6 +32,21 @@ NEXUS is not a normal portfolio. It is a futuristic, interactive skill, project,
 
 ---
 
+## Design System
+
+NEXUS uses a Dark Brutalist aesthetic with cyberpunk neon accents:
+
+| Token      | Value                        |
+|------------|------------------------------|
+| Background | `#000` (pure black)          |
+| Surface    | `neutral-900`                |
+| Border     | `neutral-800`                |
+| Accent     | `cyan-400`                   |
+| Font Mono  | Geist Mono (`--font-mono`)   |
+| Danger     | `red-500/600` (404/error)    |
+
+---
+
 ## Tech Stack
 
 | Layer      | Technology                  |
@@ -51,8 +66,15 @@ NEXUS is not a normal portfolio. It is a futuristic, interactive skill, project,
 
 ```
 nexus-portfolio/
-├── app/              # Next.js App Router (page, layout, globals.css)
-├── components/       # 20 React components
+├── app/              # Next.js App Router
+│   ├── page.tsx         # Home page
+│   ├── layout.tsx       # Root layout (Geist Mono font)
+│   ├── globals.css      # Global styles & animations
+│   ├── error.tsx        # Brutalist error boundary
+│   ├── global-error.tsx # Root error boundary (self-contained)
+│   ├── loading.tsx      # NEXUS Pulsar loading animation
+│   └── not-found.tsx    # Brutalist 404 page
+├── components/       # 22 React components
 │   ├── BootScreen.tsx # Cinematic initialization sequence
 │   ├── CoreHero.tsx   # Hero section with stats
 │   ├── FilterBar.tsx # Type / Category / Status filters
@@ -75,7 +97,8 @@ nexus-portfolio/
 │   ├── types.ts      # TypeScript type definitions
 │   ├── utils.ts      # Data loading, validation, lookup helpers
 │   ├── style-helpers.ts # Relation badges, gauge colors, status styles
-│   └── constants.ts     # Shared constants
+│   ├── constants.ts     # Shared constants
+│   └── force-layout.ts  # d3-force simulation (SimulationNode, SimulationLink, createSimulation)
 ├── tests/            # 125 tests across 18 test files
 │   ├── lib/            # Unit tests for lib modules
 │   ├── components/     # Component tests (Vitest + Testing Library)
@@ -121,7 +144,7 @@ npm test         # run all 125 tests (Vitest)
 | 4     | Interactive graph (force-layout)   | ✅ Done     |
 | 5     | Detail views & polish              | ✅ Done     |
 | 6     | Bootscreen, Scan Mode & Contact    | ✅ Done     |
-| 7     | Search, animations, responsive     | ⬜ Planned  |
+| 7     | Search, animations, responsive     | 🟡 In Progress (7.1 ✅, 7.2 ✅, 7.3–7.12 remaining) |
 | 8     | Accessibility & QA                 | ⬜ Planned  |
 | 9     | Performance & deployment           | ⬜ Planned  |
 
