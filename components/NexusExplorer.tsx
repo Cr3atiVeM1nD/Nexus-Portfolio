@@ -11,6 +11,8 @@ import { Archive, MessageCircle } from "lucide-react";
 import { ViewToggle } from "./ViewToggle";
 import { NexusGraph } from "./NexusGraph";
 import { ScanModeButton } from "./ScanModeButton";
+import { SearchBar } from "./SearchBar";
+import { searchNodes } from "@/lib/search";
 import { ContactPanel } from "./ContactPanel";
 
 interface NexusExplorerProps {
@@ -22,10 +24,11 @@ export function NexusExplorer({ data }: NexusExplorerProps) {
   const [filterTypes, setFilterTypes] = useState<NodeType[]>(["skill", "project", "concept"]);
   const [filterCategory, setFilterCategory] = useState<SkillCategory | null>(null);
   const [filterStatus, setFilterStatus] = useState<ProjectStatus | null>(null);
+  const [searchQuery, setSearchQuery] = useState("");
   const [viewMode, setViewMode] = useState<"grid" | "graph">("graph");
 
   const filteredNodes = useMemo(() => {
-    return data.nodes.filter((node) => {
+    const typeFiltered = data.nodes.filter((node) => {
       if (node.type === "core") return false;
       if (!filterTypes.includes(node.type)) return false;
       if (node.type === "skill" && filterCategory !== null) {
@@ -36,7 +39,8 @@ export function NexusExplorer({ data }: NexusExplorerProps) {
       }
       return true;
     });
-  }, [data.nodes, filterTypes, filterCategory, filterStatus]);
+    return searchNodes(searchQuery, typeFiltered);
+  }, [data.nodes, filterTypes, filterCategory, filterStatus, searchQuery]);
 
   const selectedNode = useMemo(() => {
     if (!selectedNodeId) return null;
@@ -178,6 +182,9 @@ export function NexusExplorer({ data }: NexusExplorerProps) {
             isComplete={scanComplete}
           />
         </div>
+        <div className="flex-1 max-w-md mx-4">
+          <SearchBar onSearch={setSearchQuery} />
+        </div>
         <div className="flex items-center gap-2">
           <button
             onClick={() => setIsContactOpen(true)}
@@ -222,7 +229,7 @@ export function NexusExplorer({ data }: NexusExplorerProps) {
         onStatusChange={isScanMode ? () => {} : setFilterStatus}
       />
       {viewMode === "graph" ? (
-        <div className="flex-1 min-h-0">
+        <div className="flex-1 min-h-0 relative">
           <NexusGraph
             data={{ nodes: data.nodes, edges: data.edges, meta: data.meta }}
             selectedNodeId={selectedNodeId}
@@ -231,6 +238,20 @@ export function NexusExplorer({ data }: NexusExplorerProps) {
             scanClusterCategory={currentScanCategory}
             scanModeActive={isScanMode}
           />
+          {viewMode === "graph" && filteredNodes.length === 0 && (
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <div className="text-gray-500 text-center">
+                {searchQuery !== "" ? (
+                  <>
+                    <p>No results for &raquo;{searchQuery}&laquo;</p>
+                    <p className="text-sm mt-1">Try a different term.</p>
+                  </>
+                ) : (
+                  <p>No nodes match the current filters.</p>
+                )}
+              </div>
+            </div>
+          )}
         </div>
       ) : (
         <section className="px-6 pb-16">
@@ -246,9 +267,16 @@ export function NexusExplorer({ data }: NexusExplorerProps) {
             ))}
           </div>
           {filteredNodes.length === 0 && (
-            <p className="text-gray-500 text-center py-12">
-              No nodes match the current filters.
-            </p>
+            <div className="text-gray-500 text-center py-12">
+              {searchQuery !== "" ? (
+                <>
+                  <p>No results for »{searchQuery}«</p>
+                  <p className="text-sm mt-1">Try a different term.</p>
+                </>
+              ) : (
+                <p>No nodes match the current filters.</p>
+              )}
+            </div>
           )}
         </section>
       )}
